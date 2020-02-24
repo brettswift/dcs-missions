@@ -1,0 +1,15 @@
+jobs:
+  include:
+  - stage: GitHub Release
+    script: "./build.sh"
+    deploy:
+      provider: releases
+      api_key:
+        secure: O78TSykceG2Q/XrTse9EvQmkzjOrXN89Q7H5A28d6vGHzIGA2E4hzjcNPdvznNMz0Tf65racsvHGA3j6JaT9SORW/ZXERuELf7TDR00abtOrkjwNgHF3ourG8T9pBaHn/r7DASMPXAkCTHgmWxGDIgl3mt3sbtzN0Qbsk9BLoE5/HQP0MYq58MF5crVD/EKgn4Z85SezHJSHrKEMIeskcC5pyTItgq9ig0izu8WwYLjWZIVGrtraf39UGpMTEesZ6wH4WH5arLDDIbZOuYnO8C71yUcUKQi8yK/+592pSi1bokYo6i9Im+qUyv5eCIqxToGIF8b5gSYLNPvuUJ/WSAVO80Hp9P6IrJUULrIf4NOr2+LjxdqKSmhMiTNy82g1Pf5Jff0xf5z7Lx2wLLj0Gk15Q7WHx6KAgp47ZmtyPRoLTWTMM2UjerFsqgPaGoBA8OZbLrLbxJsvuSYbugCOaTrn8ihJZx5b73dOKxIIkGvoVsgea0DXdvGxjqbYYWMR0BD9hxLmrTiL1FhWLc+akXYyqYenBf9Vu4qGirHGswEBgl+PnVNJE4za5hotFv+j+GT3xuOjh0LgGOrgcBCV7N6cWik78lbC2XKRijflyTAnhUuZu1OJdCcmz3zaWsmBvNPi8ZupCqXcfQdCkmYmG8CQj6r42hUKGcWoI8Y51Ig=
+      file_glob: true
+      file: dist/*.miz
+      on:
+        repo: brettswift/dcs-missions
+        tags: true
+        all_branches: true
+      skip_cleanup: true
